@@ -17,6 +17,11 @@ view: fakeorders {
     sql: ${TABLE}.order_price ;;
   }
 
+  dimension: ontime {
+    type: yesno
+    sql: ${order_id} < 0 ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [orders.id]
