@@ -25,6 +25,10 @@ view: orders {
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    html:
+    {% if status == "complete" %}
+    {{"https://gcpl2214.cloud.looker.com/dashboards/261 _filters['created_year']"}}
+    {% endif %} ;;
   }
 
   dimension: user_id {
