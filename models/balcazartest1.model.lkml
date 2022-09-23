@@ -54,6 +54,15 @@ explore: fakeorders {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
+
+  join: fakeorders_suggestions {
+    relationship: one_to_one
+    sql_on:  ${fakeorders_suggestions.order_id} = ${fakeorders.order_id} ;;
+  }
+}
+
+explore: fakeorders_suggestions {
+  hidden: yes
 }
 
 explore: fatal_error_user_derived_base {}
