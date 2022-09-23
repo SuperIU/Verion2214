@@ -5,8 +5,8 @@ view: fakeorders {
     type: string
     sql: ${TABLE}.customer_id ;;
     label: "Cliente"
-    suggest_explore: fakeorders_suggestion
-    suggest_dimension: fakeorders_suggestion.customer_id
+    suggest_explore: fakeorders_suggestions
+    suggest_dimension: fakeorders_suggestions.customer_id
     suggest_persist_for: "2 minutes"
   }
 
