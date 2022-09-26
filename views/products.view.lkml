@@ -11,6 +11,11 @@ view: products {
   dimension: brand {
     type: string
     sql: ${TABLE}.brand ;;
+#    html: {% assign words = value | split: ' ' %}
+#    <ul>
+#    {% for word in words %}
+#    <li>{{ word }}</li>
+#    {% endfor %} ;;
   }
 
   dimension: category {
