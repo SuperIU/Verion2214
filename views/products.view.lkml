@@ -43,6 +43,16 @@ view: products {
     sql: ${TABLE}.retail_price ;;
   }
 
+  dimension: retail_price_string {
+    type:  string
+    sql: concat("$",${retail_price}) ;;
+  }
+
+  dimension: non_numeric {
+    type:  string
+    sql: replace (${retail_price_string},"$","") ;;
+  }
+
   dimension: sku {
     type: string
     sql: ${TABLE}.sku ;;
