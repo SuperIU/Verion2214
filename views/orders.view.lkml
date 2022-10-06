@@ -22,6 +22,45 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: dynamic_date {
+    sql:
+      {% case date_part._parameter_value %}
+        {% when 'day' %}
+          ${created_date}
+        {% when 'month' %}
+          ${created_month}
+        {% when 'week' %}
+          ${created_week}
+        {% when 'year' %}
+          ${created_year}
+        {% else %}
+        ${created_date}
+      {% endcase %} ;;
+  }
+
+  parameter: date_part {
+    type: unquoted
+    allowed_value: {
+      label: "Break by Days"
+      value: "day"
+    }
+
+    allowed_value: {
+      label: "Break by Weeks"
+      value: "week"
+    }
+
+    allowed_value: {
+      label: "Break by Months"
+      value: "month"
+    }
+
+    allowed_value: {
+      label: "Break by Year"
+      value: "year"
+    }
+  }
+
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
